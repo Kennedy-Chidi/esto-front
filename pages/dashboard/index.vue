@@ -390,7 +390,7 @@ export default {
     return {
       totalDeposit: "",
       totalWithdrawal: "",
-      activeDeposit: "",
+      activeDeposit: 0,
       pendingWithdrawal: "",
       approvedTransactions: [],
 
@@ -463,9 +463,10 @@ export default {
         return 0;
       } else {
         let money = 0;
-        data.forEach((el) => {
+        for (let i = 0; i < data.length; i++) {
+          const el = data[i];
           money += el.amount;
-        });
+        }
         return money;
       }
     },
@@ -475,10 +476,10 @@ export default {
         return 0;
       } else {
         let TX = [];
-        data.forEach((el) => {
+        for (let i = 0; i < data.length; i++) {
+          const el = data[i];
           TX.push(el);
-        });
-
+        }
         return TX;
       }
     },
